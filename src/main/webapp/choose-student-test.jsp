@@ -21,10 +21,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>If student test</title>
+    <title>Choose student test</title>
 </head>
 <body>
-<h1>If student test</h1>
+<h1>Choose student test</h1>
 <table>
     <tr>
         <th>First name</th>
@@ -36,12 +36,14 @@
             <td>${student.firstName}</td>
             <td>${student.lastName}</td>
             <td>
-                <c:if test="${student.goldCustomer}">
-                    Special Discount
-                </c:if>
-                <c:if test="${not student.goldCustomer}">
-                    -
-                </c:if>
+                <c:choose>
+                    <c:when test="${student.goldCustomer}">
+                        Special Discount
+                    </c:when>
+                    <c:otherwise>
+                        -
+                    </c:otherwise>
+                </c:choose>
             </td>
         </tr>
     </c:forEach>
